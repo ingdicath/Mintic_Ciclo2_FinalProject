@@ -1,3 +1,23 @@
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea
+classes
+
+# Netbeans
+nb-configuration.xml
+
+# OS
+Thumbs.db
+.DS_Store
+
+# misc
+.checkstyle
+.pmd
+.fbprefs
+MANIFEST.MF
+
 # Compiled class file
 *.class
 
@@ -21,3 +41,4 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/FinalProject/nbproject/private/
