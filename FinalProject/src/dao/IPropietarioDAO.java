@@ -5,10 +5,22 @@
  */
 package dao;
 
+import java.util.List;
+import model.Propietario;
+
 /**
  *
  * @author diegomaldonado
  */
 public interface IPropietarioDAO {
-    
+
+    public List<Propietario> obtenerPropietarios();
+
+    public Propietario obtenerPropietario(int propId);
+
+    public void agregarPropietario(Propietario propietario);
+
+    public void actualizarPropietario(Propietario propietario);
+
+    public void eliminarPropietario(int propId);
 }
