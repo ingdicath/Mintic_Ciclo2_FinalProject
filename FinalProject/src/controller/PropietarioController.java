@@ -5,10 +5,12 @@
  */
 package controller;
 
+import dao.IPropietarioDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Propietario;
+import view.PropietarioView;
 
 /**
  * Here it creates the controller, the controller contains 2 objects: the model,
@@ -20,13 +22,13 @@ public class PropietarioController {
 
     private IPropietarioDAO propietarioDAO;
 
-    public PropietarioController(IPropietarioDAO PropietarioDAO) {
+    public PropietarioController(IPropietarioDAO propietarioDAO) {
 
         this.propietarioDAO = propietarioDAO;
     }
 
     public TableModel consultarPropietarios() {
-        String[] titulos = {"Id", "Usuario", "Apellido", "Nombre", "Teléfono"};
+        String[] titulos = {"Id", "Username", "Last name", "First name", "Phone number"};
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         List<Propietario> propietarios = propietarioDAO.obtenerPropietarios();
         for (Propietario propietario : propietarios) {
@@ -52,5 +54,4 @@ public class PropietarioController {
     public void agregarPropietario(Propietario p) {
         propietarioDAO.agregarPropietario(p);
     }
-
 }

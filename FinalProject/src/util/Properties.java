@@ -15,5 +15,5 @@ public interface Properties {
 
     String username = "root";
     String password = "";
-    String dbURL = "jdbc:mysql://localhost:3306/veterinariaPoopis";
+    String dbURL = "jdbc:mysql://localhost:3306/PetStoreDiDi";
 }

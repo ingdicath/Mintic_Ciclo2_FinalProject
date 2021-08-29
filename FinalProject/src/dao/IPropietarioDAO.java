@@ -18,9 +18,9 @@ public interface IPropietarioDAO {
 
     public Propietario obtenerPropietario(int propId);
 
-    public void agregarPropietario(Propietario propietario);
-
     public void actualizarPropietario(Propietario propietario);
 
     public void eliminarPropietario(int propId);
+
+    public void agregarPropietario(Propietario propietario);
 }
