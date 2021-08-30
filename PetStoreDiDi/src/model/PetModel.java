@@ -13,7 +13,7 @@ public class PetModel {
 
     private int id;
     private String name;
-    private int ownerFK;
+    private int ownerId;
 
     /**
      *
@@ -22,19 +22,19 @@ public class PetModel {
      */
     public PetModel(String name, int ownerFK) {
         this.name = name;
-        this.ownerFK = ownerFK;
+        this.ownerId = ownerId;
     }
 
     /**
      *
      * @param id
      * @param name
-     * @param ownerFK
+     * @param ownerId
      */
     public PetModel(int id, String name, int ownerFK) {
         this.id = id;
         this.name = name;
-        this.ownerFK = ownerFK;
+        this.ownerId = ownerId;
     }
 
     /**
@@ -61,11 +61,7 @@ public class PetModel {
     /**
      * @return the ownerFK
      */
-    public int getOwnerFK() {
-        return ownerFK;
+    public int getOwnerId() {
+        return ownerId;
     }
-//
-//    public String toString() {
-//        return this.name;
-//    }
 }

@@ -14,18 +14,18 @@ public class AppointmentModel {
     private int id;
     private String date;
     private String description;
-    private int petFK;
+    private int petId;
 
     /**
      *
      * @param date
      * @param description
-     * @param petFK
+     * @param petId
      */
-    public AppointmentModel(String date, String description, int petFK) {
+    public AppointmentModel(String date, String description, int petId) {
         this.date = date;
         this.description = description;
-        this.petFK = petFK;
+        this.petId = petId;
     }
 
     /**
@@ -33,13 +33,13 @@ public class AppointmentModel {
      * @param id
      * @param date
      * @param description
-     * @param petFK
+     * @param petId
      */
-    public AppointmentModel(int id, String date, String description, int petFK) {
+    public AppointmentModel(int id, String date, String description, int petId) {
         this.id = id;
         this.date = date;
         this.description = description;
-        this.petFK = petFK;
+        this.petId = petId;
     }
 
     /**
@@ -55,7 +55,6 @@ public class AppointmentModel {
 //    public void setId(int id) {
 //        this.id = id;
 //    }
-
     /**
      * @return the date
      */
@@ -85,9 +84,15 @@ public class AppointmentModel {
     }
 
     /**
-     * @return the petFK
+     * @return the petId
      */
-    public int getPetFK() {
-        return petFK;
-    }  
+    public int getPetId() {
+        return petId;
+    }
+
+    @Override
+    public String toString() {
+        return "AppointmentModel{" + "id=" + id + ", date=" + date + ", description=" + description + ", petId=" + petId + '}';
+    }
+
 }

@@ -41,8 +41,8 @@ public class MainWindow extends JFrame {
         add(new ControlsPanel(resultsPanel));
 
         // Adjusta el tamaño de la ventana para que quepan todos los componentes
-//        pack();
-        setSize(860, 520);
+        pack();
+       // setSize(860, 520);
 
         // Permite ubicar la ventana en el centro de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -51,7 +51,7 @@ public class MainWindow extends JFrame {
                 (screenSize.height - frameSize.height) / 2);
 
         setVisible(true);
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

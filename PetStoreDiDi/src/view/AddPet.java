@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.InitialData;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,9 @@ import model.PetModel;
  *
  * @author diani
  */
-public class AddPet extends JFrame implements ActionListener {
+
+
+/*public class AddPet extends JFrame implements ActionListener {
 
     private JLabel lblId;
     private JTextField txtId;
@@ -55,7 +58,6 @@ public class AddPet extends JFrame implements ActionListener {
 //        add(this.lblOwner);
 //        this.txtName = new JTextField();
 //        add(this.txtOwner);
-
         this.lblOwner = new JLabel("Select owner:");
         add(this.lblOwner);
         this.cbxOwner = new JComboBox();
@@ -78,21 +80,13 @@ public class AddPet extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == this.btnInsertPet) {
             int id = Integer.parseInt((String) this.txtId.getText());
-            String name = (String) this.txtName.getText();
-            String owner = (String) this.txtType.getText();
-            double price = Double.parseDouble((String) this.txtPrice.getText());
-            int idExhibitionFK = ((ExhibitionModel) this.cbxExhibition.getSelectedItem()).getId();
+            String name = (String) this.txtpetName.getText();
+            int ownerFK = ((OwnerModel) this.cbxOwner.getSelectedItem()).getId();
 
             PetModel pet = new PetModel(id, name, ownerFK);
-
-            //System.out.println(idMuseum + " " + idPresentation + " " + datePresentation + " " + artPieceName);
             PetDAO artPieceDAO = new PetDAO();
             PetDAO.insertPet(pet);
         }
     }
-    
-        private int id;
-    private String name;
-    private int ownerFK;
-
 }
+*/
