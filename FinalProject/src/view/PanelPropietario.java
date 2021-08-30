@@ -12,12 +12,10 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.util.Calendar;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
@@ -47,7 +45,7 @@ public class PanelPropietario extends JPanel {
         cargarPropietarios();
     }
 
-    public void cargarPropietarios() {
+    private void cargarPropietarios() {
         table.setModel(controller.consultarPropietarios());
         table.getTableHeader().setFont(new Font("SansSerif", Font.ITALIC, 14));
         table.setFont(new java.awt.Font("Tahoma", 0, 12));
@@ -72,8 +70,7 @@ public class PanelPropietario extends JPanel {
         };
         jsp = new JScrollPane(table);
         JPopupMenu popupMenu = new JPopupMenu();
-        JMenuItem deleteItem = new JMenuItem("Delete selected row..."); // try to setup a buttom
-        //lambda
+        JMenuItem deleteItem = new JMenuItem("Delete selected row...");
         deleteItem.addActionListener((ActionEvent e) -> {
             removeSelectedRows(table);
         });
@@ -93,6 +90,7 @@ public class PanelPropietario extends JPanel {
     }
 
     Action action = new AbstractAction() {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             TableCellListener tcl = (TableCellListener) e.getSource();
@@ -103,25 +101,23 @@ public class PanelPropietario extends JPanel {
             String oldValue = tcl.getOldValue().toString();
             if (!oldValue.equals("Id") && !oldValue.equals("Username") && !oldValue.equals("Last name") && !oldValue.equals("First name")) {
                 if (!oldValue.equals("Phone number")) {
-                    try {
-                        int propId = Integer.parseInt(table.getModel().getValueAt(tcl.getRow(), 0).toString());
-                        String propUsuario = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                        String propApellido = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                        String propNombre = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                        String propTelefono = table.getModel().getValueAt(tcl.getRow(), 1).toString();
+
+                    int propId = Integer.parseInt(table.getModel().getValueAt(tcl.getRow(), 0).toString());
+                    String propUsuario = table.getModel().getValueAt(tcl.getRow(), 1).toString();
+                    String propApellido = table.getModel().getValueAt(tcl.getRow(), 2).toString();
+                    String propNombre = table.getModel().getValueAt(tcl.getRow(), 3).toString();
+                    String propTelefono = table.getModel().getValueAt(tcl.getRow(), 4).toString();
 //                        int mascotaId = 1; //by now!
 //                        int citaId = 1; //by now!
-                        Propietario p = new Propietario(propId, propUsuario, propApellido, propNombre, propTelefono);
-                        controller.actualizarPropietario(p);
-                    } catch (Exception NumberFormatException) { // check for logic, could be propUsuario validation, not enter digits!
-//                        JOptionPane.showMessageDialog(null, "El año debe ser un número! "); //check for logic
-                    }
+                    Propietario p = new Propietario(propId, propUsuario, propApellido, propNombre, propTelefono);
+                    controller.actualizarPropietario(p);
+
                 } else {
                     int propId = Integer.parseInt(table.getModel().getValueAt(tcl.getRow(), 0).toString());
                     String propUsuario = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                    String propApellido = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                    String propNombre = table.getModel().getValueAt(tcl.getRow(), 1).toString();
-                    String propTelefono = table.getModel().getValueAt(tcl.getRow(), 1).toString();
+                    String propApellido = table.getModel().getValueAt(tcl.getRow(), 2).toString();
+                    String propNombre = table.getModel().getValueAt(tcl.getRow(), 3).toString();
+                    String propTelefono = table.getModel().getValueAt(tcl.getRow(), 4).toString();
                     Propietario p = new Propietario(propId, propUsuario, propApellido, propNombre, propTelefono);
                     controller.agregarPropietario(p);
                     editable = false;
@@ -130,7 +126,7 @@ public class PanelPropietario extends JPanel {
         }
     };
 
-    private void adjustTextToTable() { //check here to setup with margen
+    private void adjustTextToTable() {
         final TableColumnModel columnModel = table.getColumnModel();
         for (int column = 0; column < table.getColumnCount(); column++) {
             int width = 15; // Min width
@@ -139,7 +135,7 @@ public class PanelPropietario extends JPanel {
                 Component comp = table.prepareRenderer(renderer, row, column);
                 width = Math.max(comp.getPreferredSize().width + 1, width);
             }
-            if (width > 300) { //check this values
+            if (width > 300) {
                 width = 300;
             }
             columnModel.getColumn(column).setPreferredWidth(width);

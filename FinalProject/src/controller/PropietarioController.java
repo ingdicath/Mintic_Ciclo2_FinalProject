@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Propietario;
-import view.PropietarioView;
 
 /**
  * Here it creates the controller, the controller contains 2 objects: the model,
