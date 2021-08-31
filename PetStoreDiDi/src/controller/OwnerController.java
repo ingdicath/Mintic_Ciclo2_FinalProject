@@ -5,10 +5,21 @@
  */
 package controller;
 
+import dao.OwnerDAO;
+
 /**
  *
  * @author diani
  */
-public class OwnerControllerDEL {
-    
+public class OwnerController {
+
+    private OwnerDAO ownerDAO;
+
+    public OwnerController() {
+       ownerDAO = new OwnerDAO();
+    }
+
+    public void deleteOwner(int id) {
+        ownerDAO.deleteOwner(id);
+    }
 }

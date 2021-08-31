@@ -27,6 +27,7 @@ public class OwnerClickEvent implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == this.ownerFrame.getBtnAddOwnerDB()) {
+//            OwnerFrame addOwner = new OwnerFrame();
             OwnerFrame addOwner = new OwnerFrame();
             addOwner.setVisible(true);
         }

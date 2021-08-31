@@ -25,6 +25,13 @@ public class OwnerModel {
         this.phoneNumber = phoneNumber;
     }
 
+    public OwnerModel(String username, String lastName, String firstName, String phoneNumber) {
+        this.username = username;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
+    }
+
     /**
      * @return the id
      */
@@ -35,10 +42,9 @@ public class OwnerModel {
 //    /**
 //     * @param id the id to set
 //     */
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
+    public void setId(int id) {
+        this.id = id;
+    }
     /**
      * @return the username
      */

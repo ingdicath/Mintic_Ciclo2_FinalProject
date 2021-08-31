@@ -179,19 +179,4 @@ public class SummaryPanel extends JPanel {
         return btnAddPet;
     }
 
-    private void adjustTextToTable() {
-        final TableColumnModel columnModel = tblResults.getColumnModel();
-        for (int column = 0; column < tblResults.getColumnCount(); column++) {
-            int width = 15; // Min width
-            for (int row = 0; row < tblResults.getRowCount(); row++) {
-                TableCellRenderer renderer = tblResults.getCellRenderer(row, column);
-                Component comp = tblResults.prepareRenderer(renderer, row, column);
-                width = Math.max(comp.getPreferredSize().width + 1, width);
-            }
-            if (width > 300) {
-                width = 300;
-            }
-            columnModel.getColumn(column).setPreferredWidth(width);
-        }
-    }
 }
