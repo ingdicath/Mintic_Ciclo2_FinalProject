@@ -18,9 +18,9 @@ public class PetModel {
     /**
      *
      * @param name
-     * @param ownerFK
+     * @param ownerId
      */
-    public PetModel(String name, int ownerFK) {
+    public PetModel(String name, int ownerId) {
         this.name = name;
         this.ownerId = ownerId;
     }
@@ -31,7 +31,7 @@ public class PetModel {
      * @param name
      * @param ownerId
      */
-    public PetModel(int id, String name, int ownerFK) {
+    public PetModel(int id, String name, int ownerId) {
         this.id = id;
         this.name = name;
         this.ownerId = ownerId;

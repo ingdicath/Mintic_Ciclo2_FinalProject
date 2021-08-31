@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ClickEvent;
 import controller.InitialData;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -12,13 +13,11 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
@@ -34,7 +33,12 @@ public class ControlsPanel extends JPanel {
     private JTextField txtOwnerLastName;
     private JButton btnSearchOwner;
     private JButton btnAddOwner;
+    private JLabel lblPetName;
+    private JTextField txtPetName;
+    private JButton btnSearchPet;
+    private JButton btnAddPet;
     private JTable tblResults;
+
     private JLabel jLabelTitulo;
     private JScrollPane jsp;
 
@@ -49,7 +53,7 @@ public class ControlsPanel extends JPanel {
     }
 
     private void initComponents() {
-        setLayout(new GridLayout(2, 1));
+        setLayout(new GridLayout(2, 6));
 //        setLayout(new BorderLayout());
 //        jsp = new JScrollPane(tblResults);
         InitialData initialData = new InitialData();
@@ -58,9 +62,49 @@ public class ControlsPanel extends JPanel {
         this.showSummary(initialData.getPetSummary());
         //adjustTextToTable();
 //        add(jsp, BorderLayout.AFTER_LAST_LINE);
+
+        /**
+         * Owner controls setup
+         */
+        this.lblOwnerLastName = new JLabel("Owner last name");
+        add(this.getLblOwnerLastName());
+
+        this.lblOwnerLastName = new JLabel("");
+        add(this.getLblOwnerLastName());
+//        this.txtOwnerLastName = new JTextField();
+//        add(this.getTxtOwnerLastName());
+
+//        this.btnSearchOwner = new JButton("Search");
+//        add(this.btnSearchOwner);
+//        ClickEvent clickEvent = new ClickEvent(this);
+//        this.btnSearchOwner.addActionListener(clickEvent);
+        this.btnAddOwner = new JButton("Add new owner");
+        add(this.btnAddOwner);
+
+//        ClickEvent clickEvent = new ClickEvent(this);
+//        this.btnAddOwner.addActionListener(clickEvent);
+        /**
+         * Pet controls setup
+         */
+        this.lblPetName = new JLabel("Pet name");
+        add(this.getLblPetName());
+
+        this.txtPetName = new JTextField();
+        add(this.getTxtPetName());
+
+        this.btnSearchPet = new JButton("Search");
+        add(this.btnSearchPet);
+
+        ClickEvent clickEvent = new ClickEvent(this);
+        this.btnSearchPet.addActionListener(clickEvent);
+
+//        this.btnAddPet = new JButton("Add new pet");
+//        add(this.btnAddPet);
+        //        ClickEvent clickEvent = new ClickEvent(this);
+//        this.btnAddOwner.addActionListener(clickEvent);
     }
 
-    private void showSummary(List<PetSummaryModel> petSummary) {
+    public void showSummary(List<PetSummaryModel> petSummary) {
         String[] headers = {"Pet ID", "Pet Name", "Owner Last name", "# Appointments"};
         tblResults.removeAll();
         tblResults.getTableHeader().setFont(new Font("SansSerif", Font.ITALIC, 14));
@@ -71,7 +115,7 @@ public class ControlsPanel extends JPanel {
 //        Font aux = jLabelTitulo.getFont();
 //        jLabelTitulo.setFont(new Font(aux.getFontName(), aux.getStyle(), 20));
         DefaultTableModel tableModel = new DefaultTableModel();
-        tableModel.setColumnIdentifiers(headers); 
+        tableModel.setColumnIdentifiers(headers);
 
 //        tableModel.setColumnIdentifiers(headers);
         this.tblResults.setModel(tableModel);
@@ -83,6 +127,54 @@ public class ControlsPanel extends JPanel {
             registro[3] = pet.getAppointments() + "";
             tableModel.addRow(registro);
         }
+    }
+
+    /**
+     *
+     * @return the lblOwnerLastName
+     */
+    public JLabel getLblOwnerLastName() {
+        return lblOwnerLastName;
+    }
+
+    public JTextField getTxtOwnerLastName() {
+        return txtOwnerLastName;
+    }
+
+    public JButton getBtnSearchOwner() {
+        return btnSearchOwner;
+    }
+
+    public JButton getBtnAddOwner() {
+        return btnAddOwner;
+    }
+
+    public JTable getTblResults() {
+        return tblResults;
+    }
+
+    public JLabel getjLabelTitulo() {
+        return jLabelTitulo;
+    }
+
+    public JScrollPane getJsp() {
+        return jsp;
+    }
+
+    public JLabel getLblPetName() {
+        return lblPetName;
+    }
+
+    public JTextField getTxtPetName() {
+        return txtPetName;
+    }
+
+    public JButton getBtnSearchPet() {
+        return btnSearchPet;
+    }
+
+    public JButton getBtnAddPet() {
+        return btnAddPet;
     }
 
     private void adjustTextToTable() {

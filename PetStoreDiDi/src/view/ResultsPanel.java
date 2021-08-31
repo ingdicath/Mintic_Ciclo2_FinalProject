@@ -32,6 +32,7 @@ public class ResultsPanel extends JPanel {
         setLayout(new BorderLayout());
         this.tblResults = new JTable();
 //        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
         jLabelTitulo = new JLabel("Pet Summary", SwingConstants.CENTER);
         add(jLabelTitulo, BorderLayout.NORTH);
@@ -43,7 +44,7 @@ public class ResultsPanel extends JPanel {
 //              tblResults.setSize(new Dimension(100, 100));
         add(jspPane, BorderLayout.PAGE_END);
 
-        setPreferredSize(new Dimension(1020, 500));
+        setPreferredSize(new Dimension(960, 512));
     }
 
     /**
