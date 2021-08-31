@@ -62,7 +62,8 @@ public class PetSummaryDAO {
 
                 String sql = "SELECT m.mascotaId, m.mascotaNombre, p.propApellido, COUNT(c.mascotaId) AS Appointments\n"
                         + "FROM mascota AS m\n"
-                        + "NATURAL JOIN propietario AS p NATURAL LEFT JOIN cita AS c\n"
+                        + "NATURAL JOIN propietario AS p "
+                        + "NATURAL LEFT JOIN cita AS c\n"
                         + "WHERE m.mascotaNombre LIKE ? \n"
                         + "GROUP BY m.mascotaId, m.mascotaNombre, p.propApellido;";
 

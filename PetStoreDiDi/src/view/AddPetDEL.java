@@ -6,6 +6,7 @@
 package view;
 
 import controller.InitialData;
+import dao.PetDAO;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,8 +23,6 @@ import model.PetModel;
  *
  * @author diani
  */
-
-
 /*public class AddPet extends JFrame implements ActionListener {
 
     private JLabel lblId;

@@ -88,10 +88,10 @@ public class OwnerModel {
         return phoneNumber;
     }
 
-    /**
-     * @param phoneNumber the phoneNumber to set
-     */
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+//    /**
+//     * @param phoneNumber the phoneNumber to set
+//     */
+//    public void setPhoneNumber(String phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
 }

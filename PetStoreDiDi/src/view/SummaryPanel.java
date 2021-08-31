@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.ClickEvent;
+import controller.SummaryClickEvent;
 import controller.InitialData;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -27,7 +27,7 @@ import model.PetSummaryModel;
  *
  * @author diani
  */
-public class ControlsPanel extends JPanel {
+public class SummaryPanel extends JPanel {
 
     private JLabel lblOwnerLastName;
     private JTextField txtOwnerLastName;
@@ -38,7 +38,6 @@ public class ControlsPanel extends JPanel {
     private JButton btnSearchPet;
     private JButton btnAddPet;
     private JTable tblResults;
-
     private JLabel jLabelTitulo;
     private JScrollPane jsp;
 
@@ -47,7 +46,7 @@ public class ControlsPanel extends JPanel {
      *
      * @param resultsPanel
      */
-    public ControlsPanel(ResultsPanel resultsPanel) {
+    public SummaryPanel(ResultsPanel resultsPanel) {
         this.tblResults = resultsPanel.getTblResults();
         initComponents();
     }
@@ -58,10 +57,33 @@ public class ControlsPanel extends JPanel {
 //        jsp = new JScrollPane(tblResults);
         InitialData initialData = new InitialData();
 
-        // Complete Summary info
+        /**
+         * Complete summary information
+         */
         this.showSummary(initialData.getPetSummary());
         //adjustTextToTable();
 //        add(jsp, BorderLayout.AFTER_LAST_LINE);
+
+        /**
+         * Pet controls setup
+         */
+        this.lblPetName = new JLabel("Pet name");
+        add(this.getLblPetName());
+
+        this.txtPetName = new JTextField();
+        add(this.getTxtPetName());
+
+        this.btnSearchPet = new JButton("Search");
+        add(this.btnSearchPet);
+
+        SummaryClickEvent clickEvent = new SummaryClickEvent(this);
+        this.btnSearchPet.addActionListener(clickEvent);
+
+//        this.btnAddPet = new JButton("Add new pet");
+//        add(this.btnAddPet);
+        //        SummaryClickEvent clickEvent = new SummaryClickEvent(this);
+//        this.btnAddOwner.addActionListener(clickEvent);
+
 
         /**
          * Owner controls setup
@@ -76,32 +98,12 @@ public class ControlsPanel extends JPanel {
 
 //        this.btnSearchOwner = new JButton("Search");
 //        add(this.btnSearchOwner);
-//        ClickEvent clickEvent = new ClickEvent(this);
+//        SummaryClickEvent clickEvent = new SummaryClickEvent(this);
 //        this.btnSearchOwner.addActionListener(clickEvent);
         this.btnAddOwner = new JButton("Add new owner");
-        add(this.btnAddOwner);
+        add(this.getBtnAddOwner());
+        this.getBtnAddOwner().addActionListener(clickEvent);
 
-//        ClickEvent clickEvent = new ClickEvent(this);
-//        this.btnAddOwner.addActionListener(clickEvent);
-        /**
-         * Pet controls setup
-         */
-        this.lblPetName = new JLabel("Pet name");
-        add(this.getLblPetName());
-
-        this.txtPetName = new JTextField();
-        add(this.getTxtPetName());
-
-        this.btnSearchPet = new JButton("Search");
-        add(this.btnSearchPet);
-
-        ClickEvent clickEvent = new ClickEvent(this);
-        this.btnSearchPet.addActionListener(clickEvent);
-
-//        this.btnAddPet = new JButton("Add new pet");
-//        add(this.btnAddPet);
-        //        ClickEvent clickEvent = new ClickEvent(this);
-//        this.btnAddOwner.addActionListener(clickEvent);
     }
 
     public void showSummary(List<PetSummaryModel> petSummary) {

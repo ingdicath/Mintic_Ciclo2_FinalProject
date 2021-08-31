@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 
         ResultsPanel resultsPanel = new ResultsPanel();
         setContentPane(resultsPanel);
-        add(new ControlsPanel(resultsPanel));
+        add(new SummaryPanel(resultsPanel));
 
         // Adjusta el tamaño de la ventana para que quepan todos los componentes
         pack();
