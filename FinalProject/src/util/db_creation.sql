@@ -42,3 +42,7 @@ INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-08-01 15:3
 INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-08-02 18:30:00', 'Merlín presenta halitosis reflejo de un problema localizado en la boca o incluso de algún problema del aparato digestivo.', 2);
 INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-06-30 04:30:20', 'El pronóstico es reservado. Presenta molestias bucales (gingivitis), vómitos, fiebre. Se deja en hospitalización.', 4);
 INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-08-13 16:30:20', 'Viene para el programa de perritos de la tercera edad', 5);
+INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-08-14 15:07:20', 'Viene por esquema de vacunacion', 5);
+INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-08-27 08:35:20', 'Viene por esquema de vacunacion', 1);
+INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-07-02 04:30:20', 'Pronostico mejora. Se remite a cuidados intermedios', 4);
+INSERT INTO cita(citaFecha, citaDescripcion, mascotaId) VALUES ('2021-07-05 09:15:35', 'Se le realizan examenes complementarios a Kira. Aun sigue en cuidados intermedios', 4);
