@@ -30,15 +30,15 @@ Before start, be sure you setup the basic tools for running java and sql:
 
 ## Design process :bulb:
 
-1. We created a DB in sql through a [script](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/PetStoreDiDi/src/util/db_creation.sql), building tables and records from scratch.
+1. We created a database in SQL through a [script](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/PetStoreDiDi/src/util/db_creation.sql), building tables and records from scratch.
 
-2. We verified if the Entity-relationship (ER) diagram was correct according to our design, using the "Reverse Engineer" option provided by MySQLWorkBench.
+2. We verified if the Entity-relationship (ER) diagram was correct according to our design, using the _Reverse Engineer_ option provided by _MySQLWorkBench_.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/ER_mysql.png" width="60%" height="60%"></p>
 
 In this case, the relation between "propietario" and "mascota" is __one to many__, it means one "propietario" or owner can holder many "mascotas" or pets.
 In the same way, the relation between "mascota" and "cita" is also __one to many__, it means one "mascota" or pet can holder many "citas" or appointments.
 
-3. Having the DB, we created the file sources for the project. We designed our project based on three-layers architecture MVC.
+3. Having the database, we created the files (packages and classes) for the project. We designed our project based on three-layers architecture MVC.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/mvc.png" width="60%" height="60%"></p>
 
 
@@ -48,7 +48,7 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 - **dao**: contains DAO for owner and pet summary.
 - **main**: contains the main. Running this file allows to see the app.
 - **model**: contains the model for owner and pet summary.
-- **util**: where the user needs to set up the parameters for the connection to the SQL DB and where the connection is established as well.
+- **util**: where the user needs to set up the parameters for the connection to the SQL database and where the connection is established as well.
 - **view**: where is set up the Frame and Panel features for the main window, Owner and Pet summary.
 
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/packages.png" width="40%" height="40%"></p>
@@ -57,20 +57,20 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 ## How to use :hammer:
 
 1. Clone the repository in your local machine.
-2. Open a new project in your IDE and copy the folder src.
-3. Add into "Libraries" the mysql-connector-java file, located in this repo in [lib folder](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/lib).
+2. Open a new project in your IDE and copy the folder ```src```.
+3. Add into ```Libraries``` the ```mysql-connector-java-8.0.26.jar``` file, located in this repo in [lib folder](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/lib).
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/mysql-conector-java.png" width="40%" height="40%"></p>
 
-4. Go to package **main** and run "PetStoreDiDi.java".
+4. Go to package ```main``` and run ```PetStoreDiDi.java```.
 
 
 
 ----
 ## Outputs 😎
 
-### Windows
+### 1. Windows
 
-- **Main Window PetStore DiDi**, where the user can visualize a summary of pets with some basic information like id, pet name, owner last name and pet number of appointments.
+- **Main Window PetStore DiDi**, where the user can visualize a summary of pets with some basic information like ```Pet Id```, ```Pet Name```, ```Owner last name``` and pet number of ```appointments```.
 
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/main_window.png" width="70%" height="70%"></p>
 
@@ -79,7 +79,7 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/owner_window.png" width="50%" height="50%"></p>
 
 
-### Actions
+### 2. Actions
 
 - **Search a pet**: The user can search by exact coincidence or just using a character or a group of it to perform this action.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/search_pet.png" width="70%" height="70%"></p>
@@ -91,17 +91,17 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/delete_owner.png" width="60%" height="60%"></p>
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/record_deleted.png" width="40%" height="40%"></p>
 
-### Errors
+### 3. Errors
 
 When an error occurs, there are some message boxes that are displayed to warn the user about it
 
 - **Adding a new owner**: Error when the ```Username```, ```Owner Last name```, or ```Owner First name``` fields are empty.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_null.png" width="42%" height="42%"></p>
 
-- **Searching a pet**: Error when the pet doesn't exist in the Pet Store DB.
+- **Searching a pet**: Error when the pet doesn't exist in the Pet Store database.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_pet_doesnt_exist.png" width="70%" height="70%"></p>
 
-- **Deleting an owner who owns a pet.**
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_owner_with_pet.png" width="60%" height="60%"></p>
+- **Deleting an owner who owns a pet.**: An owner must not have pets at the time of being removed from the database.
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_owner_with_pet.png" width="100%" height="100%"></p>
 
 
