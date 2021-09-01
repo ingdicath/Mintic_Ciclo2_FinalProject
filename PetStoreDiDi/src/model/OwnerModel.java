@@ -18,12 +18,12 @@ public class OwnerModel {
     private String phoneNumber;
 
     /**
-     * 
+     *
      * @param id
      * @param username
      * @param lastName
      * @param firstName
-     * @param phoneNumber 
+     * @param phoneNumber
      */
     public OwnerModel(int id, String username, String lastName, String firstName, String phoneNumber) {
         this.id = id;
@@ -34,16 +34,16 @@ public class OwnerModel {
     }
 
     /**
-     * 
-     * @param username
-     * @param lastName
-     * @param firstName
-     * @param phoneNumber 
+     *
+     * @param username: use ternary if to avoid enter empty values
+     * @param lastName: use ternary if to avoid enter empty values
+     * @param firstName: use ternary if to avoid enter empty values
+     * @param phoneNumber
      */
     public OwnerModel(String username, String lastName, String firstName, String phoneNumber) {
-        this.username = username;
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.username = username.isEmpty() ? null : username;
+        this.lastName = lastName.isEmpty() ? null : lastName;
+        this.firstName = firstName.isEmpty() ? null : firstName;
         this.phoneNumber = phoneNumber;
     }
 

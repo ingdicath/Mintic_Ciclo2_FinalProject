@@ -192,7 +192,9 @@ public class OwnerFrame extends JFrame implements ActionListener {
             this.txtOwnerLastName.setText("");
             this.txtOwnerFirstName.setText("");
             this.txtPhoneNumber.setText("");
-            addOwner(owner);
+            if (owner.getId() != 0) {
+                addOwner(owner);
+            }
         }
     }
 
