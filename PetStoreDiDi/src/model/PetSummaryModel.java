@@ -16,13 +16,20 @@ public class PetSummaryModel {
     private String ownerLastName;
     private int appointments;
 
+    /**
+     *
+     * @param petId
+     * @param petName
+     * @param ownerLastName
+     * @param appointments
+     */
     public PetSummaryModel(int petId, String petName, String ownerLastName, int appointments) {
         this.petId = petId;
         this.petName = petName;
         this.ownerLastName = ownerLastName;
         this.appointments = appointments;
     }
-    
+
     public int getPetId() {
         return petId;
     }
@@ -58,5 +65,5 @@ public class PetSummaryModel {
     @Override
     public String toString() {
         return "PetSummaryModel{" + "petId=" + petId + ", petName=" + petName + ", ownerLastName=" + ownerLastName + ", appointments=" + appointments + '}';
-    } 
- }
+    }
+}

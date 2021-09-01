@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- * Connection setup with the sql DB.
+ * Connection setup with the DB.
  *
  * @author diani
  */
@@ -29,9 +29,7 @@ public class ConnectionDB {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Código : "
                     + ex.getErrorCode() + "\nError :" + ex.getMessage());
-            ex.printStackTrace();
         }
         return conn;
     }
-
 }

@@ -9,7 +9,6 @@ import controller.InitialData;
 import controller.OwnerController;
 import dao.OwnerDAO;
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -24,13 +23,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
 import model.OwnerModel;
 
 /**
@@ -58,18 +54,11 @@ public class OwnerFrame extends JFrame implements ActionListener {
     private JPanel contentPanel;
     private JPanel editPanel;
     private OwnerController controller;
-//    public OwnerFrame() {
-//        initComponents();
-//    }
-//    
 
     public OwnerFrame() {
-        
         controller = new OwnerController();
         initComponents();
     }
-    
-
 
     private void initComponents() {
         setTitle("Owner management");
@@ -77,9 +66,7 @@ public class OwnerFrame extends JFrame implements ActionListener {
         editPanel.setLayout(new GridLayout(8, 2));
         initialData = new InitialData();
 
-        /**
-         * Displays all owners information
-         */
+        // Displays all owners information
         this.showOwners(initialData.getAllOwners());
 
         this.lblOwnerUsername = new JLabel("Username");
@@ -108,24 +95,23 @@ public class OwnerFrame extends JFrame implements ActionListener {
         this.btnAddOwnerDB.addActionListener(this);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
-        // Permite ubicar la ventana en el centro de la pantalla
+        // Allows to place the window in the center of the screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = getSize();
         setLocation((screenSize.width - frameSize.width) / 2,
                 (screenSize.height - frameSize.height) / 2);
-
-//        setSize(new Dimension(800, 800));
         add(editPanel);
         pack();
-
         setVisible(true);
         setResizable(false);
-
     }
 
+    /**
+     * Panel owners setup
+     *
+     * @param owners
+     */
     public void showOwners(List<OwnerModel> owners) {
-
-//        setLayout(new BorderLayout());
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
         this.tblResults = new JTable();
@@ -134,34 +120,24 @@ public class OwnerFrame extends JFrame implements ActionListener {
         deleteItem.addActionListener((ActionEvent e) -> {
             removeSelectedRows(tblResults);
         });
+
+        // Creates a pop-up Menu to delete owners
         popupMenu.add(deleteItem);
         tblResults.setComponentPopupMenu(popupMenu);
-//        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
-//        jLabelTitulo = new JLabel("Pet Summary", SwingConstants.CENTER);
-//        add(jLabelTitulo, BorderLayout.NORTH);
-//        Font aux = jLabelTitulo.getFont();
-//        jLabelTitulo.setFont(new Font(aux.getFontName(), aux.getStyle(), 20));
         this.jspPane = new JScrollPane(this.tblResults);
-//        add(jspPane, BorderLayout.AFTER_LAST_LINE);
-//              jspPane.setSize(new Dimension(100, 100));
-//              tblResults.setSize(new Dimension(100, 100));
 
         contentPanel.add(jspPane, BorderLayout.PAGE_END);
         setContentPane(contentPanel);
         contentPanel.setPreferredSize(new Dimension(550, 600));
-//        jspPane.setSize(200, 200);
 
-//                 add(new SummaryPanel(resultsPanel));
-        // pack();
         String[] headers = {"Owner ID", "Username", "Last name", "First name", "Phone number"};
         tblResults.removeAll();
         tblResults.getTableHeader().setFont(new Font("SansSerif", Font.ITALIC, 14));
         tblResults.setFont(new java.awt.Font("Tahoma", 0, 12));
+
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(headers);
-
         this.tblResults.setModel(tableModel);
         for (OwnerModel owner : owners) {
             addOwner(owner);
@@ -170,7 +146,6 @@ public class OwnerFrame extends JFrame implements ActionListener {
 
     void addOwner(OwnerModel owner) {
         DefaultTableModel tableModel = (DefaultTableModel) tblResults.getModel();
-
         String[] registro = new String[5];
         registro[0] = owner.getId() + "";
         registro[1] = owner.getUsername();
@@ -180,13 +155,24 @@ public class OwnerFrame extends JFrame implements ActionListener {
         tableModel.addRow(registro);
     }
 
+    /**
+     *
+     * @param tblResults
+     */
     private void removeSelectedRows(JTable tblResults) {
         DefaultTableModel model = (DefaultTableModel) this.tblResults.getModel();
         int column = 0;
         int row = tblResults.getSelectedRow();
-        String value = model.getValueAt(row, column).toString();
-        controller.deleteOwner(Integer.parseInt(value));
-        model.removeRow(row);
+        try {
+            String value = model.getValueAt(row, column).toString();
+            boolean result = controller.deleteOwner(Integer.parseInt(value));
+            if (result) {
+                model.removeRow(row);
+            }
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(null, "Error: Please select the entire "
+                    + "row for delete an owner.");
+        }
     }
 
     @Override
@@ -206,10 +192,8 @@ public class OwnerFrame extends JFrame implements ActionListener {
             this.txtOwnerLastName.setText("");
             this.txtOwnerFirstName.setText("");
             this.txtPhoneNumber.setText("");
-
             addOwner(owner);
         }
-
     }
 
     public JLabel getLblOwnerId() {

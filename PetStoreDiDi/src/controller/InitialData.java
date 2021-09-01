@@ -6,13 +6,9 @@
 package controller;
 
 import dao.OwnerDAO;
-import dao.PetDAO;
 import dao.PetSummaryDAO;
-import java.util.ArrayList;
 import java.util.List;
-import model.AppointmentModel;
 import model.OwnerModel;
-import model.PetModel;
 import model.PetSummaryModel;
 
 /**
@@ -23,8 +19,6 @@ public class InitialData {
 
     private List<PetSummaryModel> petSummary = null;
     private List<OwnerModel> owners = null;
-    private ArrayList<PetModel> pets = null;
-    private ArrayList<AppointmentModel> appointments = null;
 
     public InitialData() {
         PetSummaryDAO summaryDAO = new PetSummaryDAO();
@@ -32,10 +26,6 @@ public class InitialData {
 
         OwnerDAO ownerDAO = new OwnerDAO();
         this.owners = ownerDAO.getAllOwners();
-//        this.owners.add(0, new OwnerModel(-1, "All owners")); //revisar si tambien se puede poner null
-//        
-//        PetDAO petDAO = new PetDAO();
-//        this.pets = petDAO.getAllPets();
     }
 
     public List<PetSummaryModel> getPetSummary() {
@@ -45,5 +35,4 @@ public class InitialData {
     public List<OwnerModel> getAllOwners() {
         return owners;
     }
-
 }

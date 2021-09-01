@@ -35,21 +35,18 @@ public class MainWindow extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         ResultsPanel resultsPanel = new ResultsPanel();
         setContentPane(resultsPanel);
         add(new SummaryPanel(resultsPanel));
 
-        // Adjusta el tamaño de la ventana para que quepan todos los componentes
+        // Resize the window to fit all components
         pack();
-       // setSize(860, 520);
 
-        // Permite ubicar la ventana en el centro de la pantalla
+        // Allows to place the window in the center of the screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = getSize();
         setLocation((screenSize.width - frameSize.width) / 2,
                 (screenSize.height - frameSize.height) / 2);
-
         setVisible(true);
         setResizable(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

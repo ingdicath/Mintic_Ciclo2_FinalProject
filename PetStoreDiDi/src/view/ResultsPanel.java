@@ -31,7 +31,6 @@ public class ResultsPanel extends JPanel {
     private void initComponents() {
         setLayout(new BorderLayout());
         this.tblResults = new JTable();
-//        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
         jLabelTitulo = new JLabel("Pet Summary", SwingConstants.CENTER);
@@ -39,17 +38,10 @@ public class ResultsPanel extends JPanel {
         Font aux = jLabelTitulo.getFont();
         jLabelTitulo.setFont(new Font(aux.getFontName(), aux.getStyle(), 20));
         this.jspPane = new JScrollPane(this.tblResults);
-//        add(jspPane, BorderLayout.AFTER_LAST_LINE);
-//              jspPane.setSize(new Dimension(100, 100));
-//              tblResults.setSize(new Dimension(100, 100));
         add(jspPane, BorderLayout.PAGE_END);
-
         setPreferredSize(new Dimension(960, 512));
     }
 
-    /**
-     * @return the tblResults
-     */
     public JTable getTblResults() {
         return tblResults;
     }

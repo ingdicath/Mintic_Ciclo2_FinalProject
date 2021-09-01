@@ -5,18 +5,17 @@
  */
 package controller;
 
-import dao.PetDAO;
 import dao.PetSummaryDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import model.PetModel;
 import model.PetSummaryModel;
 import view.OwnerFrame;
 import view.SummaryPanel;
 
 /**
+ * Click Event setup for "Add new owner" and "Search" button, located in the
+ * main window.
  *
  * @author diani
  */

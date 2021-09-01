@@ -16,10 +16,10 @@ public class OwnerController {
     private OwnerDAO ownerDAO;
 
     public OwnerController() {
-       ownerDAO = new OwnerDAO();
+        ownerDAO = new OwnerDAO();
     }
 
-    public void deleteOwner(int id) {
-        ownerDAO.deleteOwner(id);
+    public boolean deleteOwner(int id) {
+        return ownerDAO.deleteOwner(id);
     }
 }
