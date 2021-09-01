@@ -22,19 +22,26 @@ Before start, be sure you setup the basic tools for running java and sql:
 2. Java:
 	- Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) and JDK.
 	- Install an IDE like Netbeans, IntelliJ or any other IDE of your choice.
-	- JDBC component located in lib folder.
+	- JDBC component 
 
 
 ---
 
-## Strategy :bulb:
+## Design process :bulb:
+
+1. We created a DB in sql through a [script](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/PetStoreDiDi/src/util/db_creation.sql), building tables and records from scratch.
+2. We verified if the Entity-relationship (ER) diagram was correct according to our design.
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/images/blob/main/ER_mysql.png" width="60%" height="60%"></p>
 
 ---
 ## How to build :hammer:
 
-1. Clone the repository and go to folder - ```cd``` [PetStoreDiDi/src/main/](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/src/main)
-2. 
-Type in the terminal make
+1. Clone the repository in your local machine.
+2. Open a new project in your IDE and copy the folder src.
+3. Add into "Libraries" the mysql-connector-java file, located in this repo in [lib folder](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/lib).
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/images/blob/main/mysql-conector-java.png" width="60%" height="60%"></p>
+
+3. Go to folder [PetStoreDiDi/src/main/](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/src/main) and run "PetStoreDiDi.java"
 
 
 ---
