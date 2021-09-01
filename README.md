@@ -51,7 +51,7 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 - **util**: where the user needs to set up the parameters for the connection to the SQL DB and where the connection is established as well.
 - **view**: where is set up the Frame and Panel features for the main window, Owner and Pet summary.
 
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/packages.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/packages.png" width="40%" height="40%"></p>
 
 ---
 ## How to use :hammer:
@@ -59,7 +59,7 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 1. Clone the repository in your local machine.
 2. Open a new project in your IDE and copy the folder src.
 3. Add into "Libraries" the mysql-connector-java file, located in this repo in [lib folder](https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/tree/main/PetStoreDiDi/lib).
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/mysql-conector-java.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/mysql-conector-java.png" width="40%" height="40%"></p>
 
 4. Go to package **main** and run "PetStoreDiDi.java".
 
@@ -72,34 +72,36 @@ In the same way, the relation between "mascota" and "cita" is also __one to many
 
 - **Main Window PetStore DiDi**, where the user can visualize a summary of pets with some basic information like id, pet name, owner last name and pet number of appointments.
 
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/main_window.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/main_window.png" width="70%" height="70%"></p>
 
 - **Owner Window**, where the user can add or delete an owner.
 
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/owner_window.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/owner_window.png" width="50%" height="50%"></p>
 
 
 ### Actions
 
 - **Search a pet**: The user can search by exact coincidence or just using a character or a group of it to perform this action.
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/search_pet.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/search_pet.png" width="70%" height="70%"></p>
 
 - **Create a new owner**
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/create_new_owner.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/create_new_owner.png" width="50%" height="50%"></p>
 
-- **Delete an owner**
+- **Delete an owner**: It is required to select the entire row to perform this action.
 <p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/delete_owner.png" width="60%" height="60%"></p>
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/record_deleted.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/record_deleted.png" width="40%" height="40%"></p>
 
 ### Errors
 
 When an error occurs, there are some message boxes that are displayed to warn the user about it
 
 - **Adding a new owner**: Error when the ```Username```, ```Owner Last name```, or ```Owner First name``` fields are empty.
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_null.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_null.png" width="42%" height="42%"></p>
 
 - **Searching a pet**: Error when the pet doesn't exist in the Pet Store DB.
-<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_pet_doesnt_exist.png" width="60%" height="60%"></p>
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_pet_doesnt_exist.png" width="70%" height="70%"></p>
 
+- **Deleting an owner who owns a pet.**
+<p align="center"><img src="https://github.com/ingdicath/Mintic_Ciclo2_FinalProject/blob/main/images/error_owner_with_pet.png" width="60%" height="60%"></p>
 
 
